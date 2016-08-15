@@ -1,8 +1,8 @@
 from distutils.core import setup
 
 setup(
-    name='ignr',
-    description='Python command line client to access' \
+    name='ignr.py',
+    description='Python command line client to download' \
                 '.gitignore templates from gitignore.io',
     version='1.0',
     author='Antriksh Yadav',
