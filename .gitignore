@@ -1,5 +1,9 @@
 *.pyc
 *.DS_Store
+*.egg-info
 
 venv/
 build/
+dist/
+
+MANIFEST

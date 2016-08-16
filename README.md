@@ -36,6 +36,16 @@ Generates a new .gitignore file in the current directory. List multiple space-se
 
 If a .gitignore already exists in the directory, ignr will give you an option to back it up.
 
+## Troubleshooting
+
+Since gitignore.io uses HTTPS, running this utility in certain macOS environments may result in an SSL "handshake failure" error, which is discussed in detail in this [requests issue](https://github.com/kennethreitz/requests/issues/2022).
+
+Unfortunately, there is no trivial fix.
+
+In my experience, switching from the included Python in El Capitan to a standalone Python installed via brew solved the issue. All my existing packages seemed to remain intact.
+
 ## Contribute
 
-Feel free to make improvements. PRs are greatly appreciated. I can be reached [@Antrikshy](https://twitter.com/Antrikshy) or [via reddit](https://www.reddit.com/u/Antrikshy).
+Feel free to make improvements. PRs are greatly appreciated. ignr is currently untested on Windows. If you can confirm that it works, please let me know. You can open a PR to edit this line out if you want. If not, fixes would be nice.
+
+I can be reached [@Antrikshy](https://twitter.com/Antrikshy) or [via reddit](https://www.reddit.com/u/Antrikshy).
