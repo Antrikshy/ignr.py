@@ -1,5 +1,3 @@
-#! /usr/bin/env python
-
 import argparse, os, sys
 import gitignoreio_api as api
 
