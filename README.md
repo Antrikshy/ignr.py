@@ -18,9 +18,11 @@ Install using
 
 Lists all available .gitignore templates on gitignore.io.
 
-You can search the list using `grep`.
+### Search
 
-    ignr -l | grep python
+    ignr -s mac
+
+Searches for supplied query in list of available templates from gitignore.io, similar to using `grep`.
 
 ### Preview
 
