@@ -38,6 +38,9 @@ else:
         print "ERROR: " + ve.args[0] + " is invalid or is not supported on gitignore.io."
         sys.exit(1)
 
+    # Add signature
+    ignr_file = "{0}\n{1}\n".format(ignr_file, "# Generated using ignr.py - github.com/Antrikshy/ignr.py")
+
     # Just preview
     if preview_needed:
         print ignr_file
