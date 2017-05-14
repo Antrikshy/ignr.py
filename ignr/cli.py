@@ -10,11 +10,12 @@ task.add_argument('--search', '-s', dest='s_term', metavar='TECH', help='search 
 task.add_argument('--new', '-n', dest='n_stack', metavar='TECH', nargs='+', help='space-separated technologies - "macOS Node Sass"')
 task.add_argument('--preview', '-p', dest='p_stack', metavar='TECH', nargs='+', help='preview for space-separated technologies')
 
+parser.add_argument('--cached', '-c', action='store_true', default=False, help='Use cached list of templates if available.')
 args = parser.parse_args()
 
 # --list or --search
 if args.list or args.s_term:
-    template_list = api.get_template_list()
+    template_list = api.get_template_list(not args.cached)
 
     if args.list:
         print '\n'.join(template_list)
