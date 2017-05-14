@@ -1,0 +1,18 @@
+_complete_ignr()
+{
+	
+	local list="$(ignr -l -c)"
+	local cur="${COMP_WORDS[COMP_CWORD]}"
+	local opts="-l --list"
+	local words="${COMP_WORDS[@]}" 
+
+	if [[ ${cur} == -* ]]
+	then
+		COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+	elif [[ "$words" =~ "--new" || "$words" =~ "-n" || "$words" =~ "-p" || "$words" =~ "--preview" ]]
+	then
+		COMPREPLY=( $(compgen -W "${list}" -- ${cur}) )
+	fi
+}
+
+complete -F _complete_ignr ignr
