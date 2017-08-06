@@ -50,7 +50,11 @@ else:
         # .gitignore already exists
         if os.path.isfile('.gitignore'):
             overwrite = None
-
+            try:
+                # In Python 2 alias raw_input
+                input = raw_input
+            except NameError:
+                pass
             while (True):
                 choice = input(".gitignore exists in current directory. Continue?\n[backup (b) / overwrite (o) / cancel (c)] ").lower()
                 if choice in ['o', 'overwrite']:
@@ -63,7 +67,7 @@ else:
                     print("Ok. Exiting...")
                     sys.exit(0)
                 else:
-                   print("Please respond with 'b', 'o' or 'c'.")
+                    print("Please respond with 'b', 'o' or 'c'.")
 
         with open('.gitignore', 'w') as f:
             f.write(ignr_file)
