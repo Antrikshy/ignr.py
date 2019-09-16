@@ -1,5 +1,5 @@
 import argparse, os, sys
-import gitignoreio_api as api
+from . import gitignoreio_api as api
 
 parser = argparse.ArgumentParser()
 
@@ -17,12 +17,12 @@ if args.list or args.s_term:
     template_list = api.get_template_list()
 
     if args.list:
-        print '\n'.join(template_list)
+        print('\n'.join(template_list))
     
     if args.s_term:
         for template in template_list:
             if args.s_term.lower() in template.lower():
-                print template
+                print(template)
 
     sys.exit(0)
 
@@ -35,7 +35,7 @@ else:
     try:
         ignr_file = api.get_gitignore(gi_stack)
     except ValueError as ve:
-        print "ERROR: " + ve.args[0] + " is invalid or is not supported on gitignore.io."
+        print("ERROR: " + ve.args[0] + " is invalid or is not supported on gitignore.io.")
         sys.exit(1)
 
     # Add signature
@@ -43,7 +43,7 @@ else:
 
     # Just preview
     if preview_needed:
-        print ignr_file
+        print(ignr_file)
 
     # Write to file
     else:
@@ -52,22 +52,22 @@ else:
             overwrite = None
 
             while (True):
-                choice = raw_input(".gitignore exists in current directory. Continue?\n[backup (b) / overwrite (o) / cancel (c)] ").lower()
+                choice = input(".gitignore exists in current directory. Continue?\n[backup (b) / overwrite (o) / cancel (c)] ").lower()
                 if choice in ['o', 'overwrite']:
                     break
                 elif choice in ['b', 'backup']:
-                    print "Backing up .gitignore as 'OLD_gitignore'..."
+                    print("Backing up .gitignore as 'OLD_gitignore'...")
                     os.rename('.gitignore', 'OLD_gitignore')
                     break
                 elif choice in ['c', 'cancel']:
-                    print "Ok. Exiting..."
+                    print("Ok. Exiting...")
                     sys.exit(0)
                 else:
-                   print "Please respond with 'b', 'o' or 'c'."
+                   print("Please respond with 'b', 'o' or 'c'.")
 
         with open('.gitignore', 'w') as f:
             f.write(ignr_file)
 
-        print "New .gitignore file generated for " + ", ".join(gi_stack) + "."
+        print("New .gitignore file generated for " + ", ".join(gi_stack) + ".")
 
 sys.exit(0)

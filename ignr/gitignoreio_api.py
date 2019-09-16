@@ -1,9 +1,13 @@
-import urllib2
+from urllib import request
+
+headers = {'User-Agent': 'ignr.py'}
 
 def get_template_list():
-    response = urllib2.urlopen('https://www.gitignore.io/api/list').read()
-    template_list = []
+    response = request.urlopen(
+        request.Request('https://www.gitignore.io/api/list', headers=headers)
+    ).read().decode('utf-8')
     
+    template_list = []
     for line in map(str, response.split('\n')):
         template_list.extend(line.split(','))
 
@@ -19,6 +23,8 @@ def get_gitignore(gi_stack):
             raise ValueError(tech)  # Reports iffy item in the list
 
     comma_delimited = ','.join(gi_stack)
-    response = urllib2.urlopen('https://www.gitignore.io/api/' + comma_delimited).read()
+    response = request.urlopen(
+        request.Request('https://www.gitignore.io/api/' + comma_delimited, headers=headers)
+    ).read().decode('utf-8')
 
     return response
