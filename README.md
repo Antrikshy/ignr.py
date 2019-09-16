@@ -2,11 +2,13 @@
 
 ignr.py (or simply ignr) is a Python-based command line utility to fetch .gitignore templates from [gitignore.io](https://gitignore.io). gitignore.io has official [command line tools](https://github.com/joeblau/gitignore.io#install-command-line), but they rely on bash or zsh, and *may* not be compatible with all systems out there.
 
+The .gitignore file in this repository was generated using ignr, if you want to look at a sample!
+
 There's also a Go-based alternative, [gogi](https://github.com/Gnouc/gogi), but not everyone uses Go.
 
 ignr was created for Python users who prefer to install via [PyPI](https://pypi.python.org/pypi) and/or [pip](https://pip.pypa.io).
 
-Python 2 support was fully dropped in favor of Python 3 in version 2.0, released in late 2019.
+>Note: Version 2.0 completely drops Python 2 support in favor of Python 3, released late-2019.
 
 ## Usage
 
