@@ -52,6 +52,6 @@ In my experience, switching from the included Python in El Capitan to a standalo
 
 ## Contribute
 
-Feel free to make improvements. PRs are greatly appreciated. ignr is currently untested on Windows. If you can confirm that it works, please let me know. You can open a PR to edit this line out if you want. If not, fixes would be nice.
+Feel free to make improvements. PRs are greatly appreciated.
 
 I can be reached [@Antrikshy](https://twitter.com/Antrikshy) or [via reddit](https://www.reddit.com/u/Antrikshy).
