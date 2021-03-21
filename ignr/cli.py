@@ -1,7 +1,7 @@
 import argparse, os, sys
 from . import gitignoreio_api as api
 
-parser = argparse.ArgumentParser()
+parser = argparse.ArgumentParser(prog="python -m ignr" if "__main__" in sys.argv[0] else "ignr")
 
 # Accept list instruction, search instruction, OR create instruction
 task = parser.add_mutually_exclusive_group(required=True)
