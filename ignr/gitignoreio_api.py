@@ -6,10 +6,10 @@ BASE_URL = 'https://donotcommit.com'
 
 
 class GitignoreIOAPI:
-    def __init__(self, base_url=BASE_URL):
-        self.base_url = base_url
+    def __init__(self, base_url):
+        self.base_url = base_url or BASE_URL
 
-    def request(self, url):
+    def request(self, url = '/'):
         return request.urlopen(
             request.Request(self.base_url + url, headers=headers)
         ).read().decode('utf-8')
