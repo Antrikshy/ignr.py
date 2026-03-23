@@ -3,15 +3,15 @@ from setuptools import setup
 setup(
     name='ignr',
     description='Python command line client to download' \
-                '.gitignore templates from gitignore.io',
-    version='2.2',
+                '.gitignore templates',
+    version='2.3',
     url='https://github.com/Antrikshy/ignr',
     author='Antriksh Yadav',
     author_email='antrikshy@gmail.com',
     entry_points={'console_scripts': ['ignr=ignr.cli:__main__']},
     packages=['ignr'],
     license='MIT',
-    keywords='git gitignore gitignore.io developer',
+    keywords='git gitignore developer',
     classifiers=[
         'Programming Language :: Python :: 3',
         'License :: OSI Approved :: MIT License',

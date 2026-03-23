@@ -1,5 +1,5 @@
 import argparse, os, sys
-from .gitignoreio_api import GitignoreIOAPI
+from .api import API
 
 parser = argparse.ArgumentParser(prog="python -m ignr" if "__main__" in sys.argv[0] else "ignr")
 parser.add_argument('--base-url', '-b', dest='base_url', metavar='URL', help='base url for api to fetch gitignore templates')
@@ -13,7 +13,7 @@ task.add_argument('--preview', '-p', dest='p_stack', metavar='TECH', nargs='+', 
 
 args = parser.parse_args()
 
-api = GitignoreIOAPI(args.base_url)
+api = API(args.base_url)
 
 # --list or --search
 if args.list or args.s_term:
@@ -21,7 +21,7 @@ if args.list or args.s_term:
 
     if args.list:
         print('\n'.join(template_list))
-    
+
     if args.s_term:
         for template in template_list:
             if args.s_term.lower() in template.lower():
@@ -38,11 +38,11 @@ else:
     try:
         ignr_file = api.get_gitignore(gi_stack)
     except ValueError as ve:
-        print("ERROR: " + ve.args[0] + " is invalid or is not supported on gitignore.io.")
+        print("ERROR: " + ve.args[0] + " is invalid or is not supported.")
         sys.exit(1)
 
     # Add signature
-    ignr_file = "{0}\n{1}\n".format(ignr_file, "# Generated using ignr.py - github.com/Antrikshy/ignr.py")
+    ignr_file = "{0}\n{1}\n".format(ignr_file, "\n# Generated using ignr.py - github.com/Antrikshy/ignr.py")
 
     # Just preview
     if preview_needed:

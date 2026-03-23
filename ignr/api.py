@@ -5,7 +5,7 @@ headers = {'User-Agent': 'ignr.py'}
 BASE_URL = 'https://donotcommit.com'
 
 
-class GitignoreIOAPI:
+class API:
     def __init__(self, base_url):
         self.base_url = base_url or BASE_URL
 
@@ -13,10 +13,10 @@ class GitignoreIOAPI:
         return request.urlopen(
             request.Request(self.base_url + url, headers=headers)
         ).read().decode('utf-8')
-    
+
     def get_template_list(self):
         response = self.request('/api/list')
-        
+
         template_list = []
         for line in map(str, response.split('\n')):
             template_list.extend(line.split(','))
