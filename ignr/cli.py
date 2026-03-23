@@ -1,7 +1,8 @@
 import argparse, os, sys
-from . import gitignoreio_api as api
+from .gitignoreio_api import GitignoreIOAPI
 
 parser = argparse.ArgumentParser(prog="python -m ignr" if "__main__" in sys.argv[0] else "ignr")
+parser.add_argument('--base-url', '-b', dest='base_url', metavar='URL', help='base url for api to fetch gitignore templates')
 
 # Accept list instruction, search instruction, OR create instruction
 task = parser.add_mutually_exclusive_group(required=True)
@@ -11,6 +12,8 @@ task.add_argument('--new', '-n', dest='n_stack', metavar='TECH', nargs='+', help
 task.add_argument('--preview', '-p', dest='p_stack', metavar='TECH', nargs='+', help='preview for space-separated technologies')
 
 args = parser.parse_args()
+
+api = GitignoreIOAPI(args.base_url)
 
 # --list or --search
 if args.list or args.s_term:
