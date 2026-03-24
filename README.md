@@ -12,9 +12,14 @@ The .gitignore file in this repository was generated using ignr, if you want to 
 
 ## Usage
 
-Install using
+Install using pip3, or consider using [pipx](https://pipx.pypa.io) to keep things clean.
 
-    pip install ignr
+    pip3 install ignr
+
+    // OR
+
+    <install pipx>
+    pipx install ignr
 
 ### List
 
