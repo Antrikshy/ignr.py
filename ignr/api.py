@@ -19,7 +19,9 @@ class API:
 
         template_list = []
         for line in map(str, response.split('\n')):
-            template_list.extend(line.split(','))
+            template_list.extend(
+                item.strip() for item in line.split(',') if item.strip()
+            )
 
         return template_list
 
